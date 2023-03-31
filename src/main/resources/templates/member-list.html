@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>회원명단</title>
+    <style>
+
+        title {
+            color: dimgray;
+            font-size: 60px;
+        }
+
+        body {
+            background-color: #dbdbdb;
+        }
+
+        div {
+            margin: auto;
+            width: 350px;
+            background-color: darkgray;
+            border-radius: 10px;
+            text-align: center;
+            padding: 30px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            border: none;
+        }
+
+        .in {
+            margin-bottom: 10px;
+        }
+
+        #btn {
+            background-color: lightsteelblue;
+            margin-bottom: 30px;
+            color: dimgray;
+        }
+
+        a {
+            text-decoration: none;
+            color: dimgray;
+            font-size: 12px;
+        }
+        h2{
+            color: #363636;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h2>회원 목록</h2>
+
+    <table>
+        <tr>
+            <th></th>
+            <th>이름</th>
+        </tr>
+        <tr th:each="member : ${list}"> <td th:text="${member.getMemberNo()}"></td>
+            <td>
+                <a th:href="'/members/'+${member.getMemberNo()}" th:text="${member.getMemberName()}"></a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

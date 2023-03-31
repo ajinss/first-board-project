@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        title {
+            color: dimgray;
+            font-size: 60px;
+        }
+
+        body {
+            background-color: #dbdbdb;
+        }
+
+        div {
+            margin: auto;
+            width: 350px;
+            background-color: darkgray;
+            border-radius: 10px;
+            text-align: center;
+            padding: 30px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            border: none;
+        }
+
+        .in {
+            margin-bottom: 10px;
+        }
+
+        #btn {
+            background-color: lightsteelblue;
+            margin-bottom: 30px;
+            color: dimgray;
+        }
+
+        a {
+            text-decoration: none;
+            color: dimgray;
+            font-size: 12px;
+        }
+        h1 {
+            color: #363636;
+            text-align: center;
+        }
+        dl {
+            text-align: center;
+        }
+    </style>
+</head>
+<script>
+    function toggleForm() {
+        let div = document.getElementById("myDiv");
+        if (div.style.display === "none") {
+            div.style.display = "block";
+        } else {
+            div.style.display = "none";
+        }
+    }
+</script>
+<body>
+<div>
+                <h2 th:text="${post.getTitle()}"></h2>
+                <dl>
+                    <dt>번호</dt>
+                    <dd th:text="${post.getBoardNo()}"></dd>
+                </dl>
+                <dl>
+                    <dt>글쓴이</dt>
+                    <dd th:text="${post.getWriter()}"></dd>
+                </dl>
+                <dl>
+                    <dt>작성일</dt>
+                    <dd th:text="${post.getWriteTime()}"></dd>
+                </dl>
+
+                <dl>
+                    <dt>내용</dt>
+                    <dd th:text="${post.getContent()}"></dd>
+                </dl><br>
+
+    <a th:href="${post.getBoardNo()}+'/edit'">수정</a>
+    <a th:href="${post.getBoardNo()}+'/delete'">삭제</a>
+    <a href="/board">목록</a>
+    <table>
+        <tr th:each="comment : ${comments}">
+            <td th:text="${comment.getCommentWriter()}"></td>
+            <td th:text="${comment.getCommentWriteTime()}"></td>
+            <td th:text="${comment.getCommentContent()}"></td>
+        <td>
+            <button id="myButton" onclick="toggleForm()">수정</button>
+            <div id="myDiv" style="display:none">
+                <form method="POST" th:action="${post.getBoardNo()}+'/'+${comment.getCommentNo()}+'/comment-edit'">
+                    <input type="text" name="commentContent">
+                    <button type="submit">제출</button>
+                </form>
+            </div>
+        <a th:href="'/board/'+${post.getBoardNo()}+'/'+${comment.getCommentNo()}+'/comment-remove'">삭제</a>
+        </td>
+        </tr>
+    </table>
+    <form method="post" th:action="'/board/'+${post.getBoardNo()}+'/comment-post'">
+        <textarea rows = "3" cols = "45" name = "commentContent" placeholder="댓글"></textarea>
+        <input type="submit" id="btn" value="댓글 등록">
+    </form>
+
+</div>
+</body>
+
+</html>

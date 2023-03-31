@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>회원정보</title>
+    <style>
+
+        title {
+            color: dimgray;
+            font-size: 60px;
+        }
+
+        body {
+            background-color: #dbdbdb;
+        }
+
+        div {
+            margin: auto;
+            width: 350px;
+            background-color: darkgray;
+            border-radius: 10px;
+            text-align: center;
+            padding: 30px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            border: none;
+        }
+
+        .in {
+            margin-bottom: 10px;
+        }
+
+        #btn {
+            color: dimgray;
+        }
+
+        a {
+            text-decoration: none;
+            color: dimgray;
+            font-size: 12px;
+        }
+        h1 {
+            color: #363636;
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div>
+        <li th:text="${member.getMemberNo()}"></li>
+        <li th:text="${member.getMemberId()}"></li>
+        <li th:text="${member.getMemberPw()}"></li>
+        <li th:text="${member.getMemberName()}"></li>
+        <a th:href="${member.getMemberNo()}+'/update'">수정</a>
+        <a th:href="${member.getMemberNo()}+'/delete'">삭제</a>
+        <a th:href="${member.getMemberNo()}+'/posts'">내 게시물</a>
+    </div>
+</body>
+</html>

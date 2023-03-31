@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>아진이 친구들</title>
+    <style>
+
+        title {
+            color: dimgray;
+            font-size: 60px;
+        }
+
+        body {
+            background-color: #dbdbdb;
+        }
+
+        div {
+            margin: auto;
+            width: 350px;
+            background-color: darkgray;
+            border-radius: 10px;
+            text-align: center;
+            padding: 30px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            border: none;
+        }
+
+        .in {
+            margin-bottom: 10px;
+        }
+
+        #btn {
+            background-color: lightsteelblue;
+            margin-bottom: 30px;
+            color: dimgray;
+        }
+
+        a {
+            text-decoration: none;
+            color: dimgray;
+            font-size: 12px;
+        }
+        h1 {
+            color: #363636;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>아진이 친구들</h1>
+<div>
+    <form method="post" action="/login">
+        <input type="text" name="memberId" placeholder="아이디" class="in">
+        <input type="password" name="memberPw" placeholder="비밀번호" class="in">
+        <input type="submit" id="btn" value="로그인"><br>
+    </form>
+    <a href="/register">회원가입</a>
+</div>
+</body>
+</html>

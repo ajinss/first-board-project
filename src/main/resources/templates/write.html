@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:text-align="http://www.w3.org/1999/xhtml" xmlns:vertical-align="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        title {
+            color: dimgray;
+            font-size: 60px;
+        }
+
+        body {
+            background-color: #dbdbdb;
+        }
+
+        div {
+            margin: auto;
+            width: 350px;
+            background-color: darkgray;
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            border: none;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            border: none;
+        }
+
+        .in {
+            margin-bottom: 10px;
+        }
+        .in2{
+            margin-bottom: 10px;
+            height: 350px;
+            vertical-align: top;
+            text-align: left;
+        }
+
+        #btn {
+            background-color: lightsteelblue;
+            margin-bottom: 30px;
+            color: dimgray;
+        }
+
+        a {
+            text-decoration: none;
+            color: dimgray;
+            font-size: 12px;
+        }
+        h1 {
+            color: #363636;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <form method="post" action="/writing">
+        <input type="text" name="title" placeholder="제목" class="in"><br>
+        <textarea rows = "10" cols = "45" name = "content" placeholder="내용"></textarea>
+        <input type="text" name="writer" placeholder="작성자" class="in"><br>
+        <input type="submit" id="btn" value="작성 완료">
+    </form>
+</div>
+
+</body>
+</html>
